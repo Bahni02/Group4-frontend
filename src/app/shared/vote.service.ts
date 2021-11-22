@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class VoteService {
-  baseUrl = environment.baseUrl;
+  //baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
