@@ -1,0 +1,33 @@
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      
+        <a aria-label="Home" class="logo" routerLink="/">
+          <div id="logo">
+              <img src=".\assets\LOGO.png">
+          </div>
+      </a> 
+          <div class="reddit-text">
+           <span style="font-size: 25px;">SPECTRUM</span>
+           <sub style="font-size: 15px; color: blueviolet;" >THINK.EXPLORE.MEET</sub>
+          
+          </div>
+          <div class="flex-grow-1 float-right">
+            <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button (click)="goToUserProfile()" ngbDropdownItem>Profile</button>
+                    <button (click)="logout()" ngbDropdownItem>Logout</button>
+                </div>
+                <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+                    <img class="account-icon" src=".\assets\user1.jpg">
+                    {{username}}
+                </button>
+            
+                </div>
+              </div>
+
+      <div *ngIf="!isLoggedIn">
+        <a routerLink="/sign-up" class="float-right sign-up mr-2">Sign up</a>
+        <a routerLink="/login" class="float-right login mr-2">Login</a>
+      </div>
+    </nav>
+  </header>
