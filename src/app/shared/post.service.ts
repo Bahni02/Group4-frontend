@@ -9,23 +9,23 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PostService {
-  baseUrl = environment.baseUrl;
+ // baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
   getAllPosts(): Observable<Array<PostModel>> {
-    return this.http.get<Array<PostModel>>( this.baseUrl +'api/posts/');
+    return this.http.get<Array<PostModel>>( 'https://spring-spectrum.herokuapp.com/api/posts/');
   }
 
   createPost(postPayload: CreatePostPayload): Observable<any> {
-    return this.http.post(this.baseUrl +'api/posts/', postPayload);
+    return this.http.post('https://spring-spectrum.herokuapp.com/api/posts/', postPayload);
   }
 
   getPost(id: number): Observable<PostModel> {
-    return this.http.get<PostModel>(this.baseUrl +'api/posts/' + id);
+    return this.http.get<PostModel>('https://spring-spectrum.herokuapp.com/api/posts/' + id);
   }
 
   getAllPostsByUser(name: string): Observable<PostModel[]> {
-    return this.http.get<PostModel[]>(this.baseUrl +'api/posts/by-user/' + name);
+    return this.http.get<PostModel[]>('https://spring-spectrum.herokuapp.com/api/posts/by-user/' + name);
   }
 }

@@ -8,15 +8,15 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SubredditService {
-  baseUrl=environment.baseUrl;
+  //baseUrl=environment.baseUrl;
   constructor(private http: HttpClient) { }
 
   getAllSubreddits(): Observable<Array<SubredditModel>> {
-    return this.http.get<Array<SubredditModel>>(this.baseUrl+'api/subreddit');
+    return this.http.get<Array<SubredditModel>>('https://spring-spectrum.herokuapp.com/api/subreddit');
   }
 
   createSubreddit(subredditModel: SubredditModel): Observable<SubredditModel> {
-    return this.http.post<SubredditModel>(this.baseUrl+'api/subreddit',
+    return this.http.post<SubredditModel>('https://spring-spectrum.herokuapp.com/api/subreddit',
       subredditModel);
   }
 }
